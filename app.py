@@ -32,7 +32,7 @@ def submit_test_email():
 
 
 def verify_test_email(search):
-    headers = {'Api-Token': app.config['API_TOKEN']}
+    headers = {'Api-Token': app.config['MAILTRAP_API_TOKEN']}
     params = {'search': search}
     inbox_id = app.config['INBOX_ID']
     api_url = f'https://mailtrap.io/api/v1/inboxes/{inbox_id}/messages'
