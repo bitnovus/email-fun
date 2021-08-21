@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<h1>{% block title %}Verify{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<form method="get" action="/verify">
+    <label for="test_id">test_id</label>
+    <input name="test_id" id="test_id" required>
+    <input type="submit" value="Submit">
+</form>
+{% endblock %}
