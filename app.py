@@ -6,8 +6,10 @@ from flask.templating import render_template
 from flask import Flask, request
 from flask_mail import Mail, Message
 
-
 app = Flask(__name__, template_folder='templates')
+
+for key in dict(os.environ):
+    app.config[key] = os.environ.get(key)
 
 app.config['MAIL_SERVER'] = 'smtp.mailtrap.io'
 app.config['MAIL_PORT'] = 2525
@@ -15,11 +17,6 @@ app.config['INBOX_ID'] = 1444368
 app.config['MAIL_USE_TLS'] = True
 app.config['MAIL_USE_SSL'] = False
 mail = Mail(app)
-
-
-def set_all_env():
-    for key in dict(os.environ):
-        app.config[key] = os.environ.get(key)
 
 
 def submit_test_email():
