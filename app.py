@@ -74,7 +74,7 @@ def fun():
         email_id = submit_test_email()
         return f'id is <a href="/verify?test_id={email_id}">{email_id}</a>'
     else:
-        return "no fun for you"
+        return "no fun for you", 401
 
 
 @app.route("/verify", methods=['GET'])
